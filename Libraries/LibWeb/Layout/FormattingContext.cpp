@@ -1890,7 +1890,7 @@ bool box_is_sized_as_replaced_element(Box const& box)
     if (is<ReplacedBox>(box))
         return true;
 
-    if (box.has_preferred_aspect_ratio()) {
+    if (box.has_preferred_aspect_ratio() && box.computed_values().box_sizing() != CSS::BoxSizing::BorderBox) {
         // From CSS2:
         // If height and width both have computed values of auto and the element has an intrinsic ratio but no intrinsic height or width,
         // then the used value of width is undefined in CSS 2.
